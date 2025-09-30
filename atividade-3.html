@@ -5,39 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="icon" type="image/png" href="assets/icons/favicon-96x96.png">
 </head>
 
 <body>
     <header>
-        <h1>Ponha o mouse no centro da tela!</h1>
+        <h1>Imagens que mudam conforme o tamanho da tela</h1>
     </header>
 
     <main>
 
-        <picture>
+       <picture>
+    <source srcset="assets/images/careca-em-baixa-resolucao.png" media="(max-width: 600px)">
 
-            <section class="container-image">
-                <img class="image-base" src="assets/images/pov-ego.png" alt="Imagem que muda ao passar">
+    <source srcset="assets/images/pov-vesgo.png" media="(max-width: 800px)">
 
-                 <img class = image-overlay src="assets/images/pov-vesgo.png" alt="">
-            </section>
-
-            <section>
-
-                <ul>
-
-                    <li>Html</li>
-                    <li>Css</li>
-                    <li>Javascript</li>
-
-                </ul>
-
-            </section>
+    <img src="assets/images/pov-ego.png" alt="Descrição da imagem padrão">
+</picture>
 
 
-        </picture>
+
+        <section>
+
+            <ul>
+
+                <li>Html</li>
+                <li>Css</li>
+                <li>Javascript</li>
+
+            </ul>
+
+        </section>
 
     </main>
 
