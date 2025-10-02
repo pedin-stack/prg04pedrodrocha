@@ -6,12 +6,15 @@
     <title>Tesouraria - SIGECAP</title>
     <link rel="stylesheet" href="assets/css/treasury.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-96x96.png">
 </head>
 <body>
     <div class="container">
         <nav class="sidebar">
             <header class="sidebar-header">
-                <img src="https://i.imgur.com/r6H5B6A.png" alt="Logo" class="logo">
+                <img src="assets/icons/favicon-96x96.png" alt="Logo" class="logo">
                 <div class="header-text">
                     <span class="chapter-name">Liberdade Harmoniosa</span>
                     <span class="chapter-number">Capítulo n° 387</span>
@@ -34,11 +37,8 @@
                 <h1>Tesouraria</h1>
                 <div class="user-profile">
                     <span>User</span>
-                    <img src="avatar.png" alt="Avatar" class="avatar">
                 </div>
             </header>
-
-<!--  OVERLAY DE MOVIMENTAÇÕES  -->
 
             <section class="treasury-options">
                 <div class="option-card" id="register-movement-btn">
@@ -67,10 +67,42 @@
 
         <div class="modal-overlay" id="movement-modal">
             <div class="modal-content">
-                </div>
+                <header class="modal-header">
+                    <h2>Registrar Nova Movimentação</h2>
+                    <button class="close-modal-btn" id="close-modal">&times;</button>
+                </header>
+                <form class="modal-form">
+                    <div class="form-group">
+                        <label for="movement-name">Nome/Objeto da Movimentação</label>
+                        <input type="text" id="movement-name" placeholder="Ex: Compra de materiais para filantropia" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="movement-description">Descrição</label>
+                        <textarea id="movement-description" rows="3" placeholder="Detalhes da movimentação financeira..."></textarea>
+                    </div>
+                    <div class="form-group-inline">
+                        <div class="form-group">
+                            <label>Tipo</label>
+                            <div class="radio-group">
+                                <input type="radio" id="entrada" name="movement-type" value="entrada" checked>
+                                <label for="entrada">Entrada</label>
+                                <input type="radio" id="saida" name="movement-type" value="saida">
+                                <label for="saida">Saída</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="movement-value">Valor (R$)</label>
+                            <input type="number" id="movement-value" placeholder="0,00" step="0.01" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="movement-proof">Documento Comprobatório</label>
+                        <input type="file" id="movement-proof" accept=".pdf" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Enviar Movimentação</button>
+                </form>
+            </div>
         </div>
-
-<!--OVERLAY DE RELATÓRIOS-->
 
         <div class="modal-overlay" id="reports-modal">
             <div class="modal-content">
@@ -93,7 +125,6 @@
                 </form>
             </div>
         </div>
-
     </div>
     
     <script src="https://kit.fontawesome.com/8c5f917d47.js" crossorigin="anonymous"></script>

@@ -37,5 +37,5 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-}); //abrindo a aba de reh=gistrar movimentação
+}); //abrindo a aba de registrar movimentação
 
