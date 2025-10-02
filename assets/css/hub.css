@@ -1,15 +1,14 @@
-/* --- GERAL E VARIÁVEIS --- */
-:root {
-    --color-bg: #1a1a1a;
-    --color-sidebar: #2c2c2c;
-    --color-main: #212121;
-    --color-card: #2c2c2c;
-    --color-primary: #D4AF37; /* Dourado */
-    --color-text: #e0e0e0;
-    --color-text-muted: #888;
-    --color-border: #444;
 
-    --sidebar-width-expanded: 260px;
+:root {
+   
+    --background-color: #121212;
+    --surface-color: #1E1E1E;
+    --primary-accent-color: #D4AF37; 
+    --text-primary-color: #FFFFFF;
+    --text-secondary-color: #A9A9A9;
+    --border-color: #2c2c2c;
+
+    --sidebar-width: 260px;
     --sidebar-width-collapsed: 88px;
 }
 
@@ -21,22 +20,24 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: var(--color-main);
-    color: var(--color-text);
+    background-color: var(--background-color);
+    color: var(--text-primary-color);
+    height: 100vh;
+    overflow: hidden;
 }
 
 .container {
     display: flex;
+    height: 100vh;
 }
 
 /* --- BARRA LATERAL (SIDEBAR) --- */
 .sidebar {
-    background-color: var(--color-sidebar);
-    width: var(--sidebar-width-expanded);
+    background-color: var(--surface-color);
+    width: var(--sidebar-width);
     height: 100vh;
     padding: 20px;
-    position: sticky;
-    top: 0;
+    position: relative; 
     display: flex;
     flex-direction: column;
     transition: width 0.3s ease;
@@ -52,6 +53,7 @@ body {
 .logo {
     width: 50px;
     height: 50px;
+    flex-shrink: 0;
 }
 
 .header-text {
@@ -64,29 +66,31 @@ body {
 
 .chapter-name {
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 16px;
+    color: var(--text-primary-color);
 }
 
 .chapter-number {
-    font-size: 0.8rem;
-    color: var(--color-text-muted);
+    font-size: 12px;
+    color: var(--text-secondary-color);
 }
 
 .toggle-btn {
     position: absolute;
-    top: 25px;
-    right: -15px;
-    width: 30px;
-    height: 30px;
+    top: 30px;
+    right: -12px; 
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
-    background-color: var(--color-primary);
-    color: var(--color-bg);
+    background-color: var(--primary-accent-color);
+    color: var(--background-color);
     border: none;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: transform 0.3s ease;
+    z-index: 10;
 }
 
 .menu-items {
@@ -94,60 +98,66 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    flex-grow: 1; /* Empurra o menu de logout para baixo */
+    flex-grow: 1;
 }
 
 .menu-items li a {
     display: flex;
     align-items: center;
-    gap: 15px;
-    padding: 12px 15px;
-    color: var(--color-text-muted);
+    gap: 20px;
+    padding: 14px 20px;
+    color: var(--text-secondary-color);
     text-decoration: none;
     border-radius: 8px;
     white-space: nowrap;
     transition: background-color 0.2s, color 0.2s;
 }
 
-.menu-items li a:hover, .menu-items li a.active {
-    background-color: var(--color-main);
-    color: var(--color-primary);
+.menu-items li a:hover {
+    background-color: var(--background-color);
+    color: var(--text-primary-color);
+}
+
+.menu-items li a.active {
+    background-color: var(--primary-accent-color);
+    color: var(--background-color);
+}
+.menu-items li a.active svg {
+    stroke: var(--background-color);
 }
 
 .menu-items li a svg {
     width: 24px;
     height: 24px;
-    flex-shrink: 0; /* Impede que o ícone seja espremido */
+    flex-shrink: 0;
 }
 
-/* --- ESTILOS DA BARRA RECOLHIDA --- */
+
 .sidebar.collapsed {
     width: var(--sidebar-width-collapsed);
 }
 
-.sidebar.collapsed .header-text {
-    opacity: 0;
-    visibility: hidden;
-}
-
+.sidebar.collapsed .header-text,
 .sidebar.collapsed .menu-items span {
     opacity: 0;
     visibility: hidden;
     width: 0;
+    pointer-events: none; 
 }
 
 .sidebar.collapsed .menu-items a {
     justify-content: center;
+    padding: 14px;
 }
 
 .sidebar.collapsed .toggle-btn {
     transform: rotate(180deg);
 }
 
-/* --- CONTEÚDO PRINCIPAL --- */
+
 .main-content {
     flex-grow: 1;
-    padding: 30px;
+    padding: 20px 40px;
     overflow-y: auto;
 }
 
@@ -155,59 +165,77 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
+}
+.page-header h1 {
+    font-size: 32px;
+    font-weight: 600;
 }
 
 .user-profile {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
 }
 
 .user-profile img {
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    object-fit: cover;
 }
+
 
 .dashboard-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+    gap: 30px;
 }
 
 .card {
-    background-color: var(--color-card);
+    background-color: var(--surface-color);
     padding: 25px;
     border-radius: 12px;
-    border-left: 5px solid var(--color-primary);
+    border: 1px solid var(--border-color); 
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-accent-color);
 }
 
 .card h3 {
     margin-bottom: 15px;
     font-weight: 600;
+    color: var(--text-secondary-color);
 }
 
 .card p {
     font-size: 1.8rem;
     font-weight: 700;
+    color: var(--text-primary-color);
 }
 
-.card .money {
-    color: #4caf50; /* Verde para dinheiro */
+.card p.money {
+    color: #4caf50; 
 }
 
 .card small {
-    color: var(--color-text-muted);
+    color: var(--text-secondary-color);
     font-size: 0.9rem;
     display: block;
     margin-top: 15px;
 }
 
-/* --- RESPONSIVIDADE --- */
 @media (max-width: 768px) {
+    body {
+        height: auto;
+        overflow: visible;
+    }
     .container {
         flex-direction: column;
+        height: auto;
     }
     .sidebar {
         width: 100%;
@@ -216,12 +244,14 @@ body {
         flex-direction: row;
         align-items: center;
         padding: 10px 20px;
+        justify-content: space-between;
     }
     .toggle-btn { display: none; }
     .sidebar-header { margin-bottom: 0; }
     .header-text { display: none; }
-    .menu-items { flex-direction: row; justify-content: space-around; width: 100%; }
+    .menu-items { flex-direction: row; justify-content: space-around; width: 100%; gap: 5px; flex-grow: 1;}
     .menu-items span { display: none; }
-    .menu-items a { justify-content: center; }
+    .menu-items a { justify-content: center; gap: 0; padding: 10px;}
     .page-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .main-content { padding: 20px; }
 }
