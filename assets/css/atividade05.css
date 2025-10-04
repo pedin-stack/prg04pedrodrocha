@@ -1,0 +1,106 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #1c1e21;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #e7e7e7;
+    padding-bottom: 1rem;
+    text-align: center;
+}
+
+h2 {
+    color: #555;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+a.voltar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+a.voltar:hover {
+    background-color: #0056b3;
+}
+
+.card-color {
+    background-color: white;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: left; 
+}
+
+
+.card-color p {
+    font-size: 1em;
+    font-weight: 400;
+    margin-top:12%;
+    margin-bottom: 20%;
+    color: #333;
+    text-align: center;
+}
+
+.card-color h3 {
+    font-size: 1em;
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+
+.palette {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+}
+
+.palette > * { /* aplica automaticamente para todos os elementos filhos */
+    width: 100px; 
+    height: 50px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    font-size: 0;
+}
+
+.color-1 { background-color: #121212; }
+.color-2 { background-color: #FFFFFF; border: 1px solid #ddd; }
+.color-3 { background-color: #1E1E1E; }
+.color-4 { background-color: #D4AF37; }
+.color-5 { background-color: #A9A9A9; }
+.color-6 { background-color: #2c2c2c; }
+
+a.project {
+    position:absolute ;
+    top: 100%;
+    left: 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+a.project:hover {
+    background-color: #0056b3;
+}
