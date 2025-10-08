@@ -126,3 +126,31 @@
 .modal-form input[type="time"]::-webkit-calendar-picker-indicator {
     filter: invert(0.8);
 }
+
+.calendar-toolbar {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.action-btn {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary-color);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.action-btn:hover {
+    background-color: var(--primary-accent-color);
+    color: var(--background-color);
+    border-color: var(--primary-accent-color);
+}
