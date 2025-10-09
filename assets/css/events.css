@@ -1,156 +1,113 @@
-
-.calendar-toolbar {
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.calendar-container {
+/* events.css - estilizações específicas para a página de Eventos
+    Observações:
+    - FullCalendar requer seu próprio CSS (adicionado via CDN em events.html).
+    - Aqui nós adaptamos a paleta do calendário para usar o dourado do projeto.
+*/
+/* --- Wrapper do Calendário --- */
+.calendar-wrapper {
     background-color: var(--surface-color);
     padding: 25px;
     border-radius: 12px;
-}
-
-.calendar-header {
-    text-align: center;
-    margin-bottom: 20px;
-}
-.calendar-header h2 {
-    font-size: 24px;
-    font-weight: 600;
-}
-
-.calendar-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 10px;
-}
-
-.day-name {
-    font-weight: 500;
-    text-align: center;
-    color: var(--text-secondary-color);
-    padding-bottom: 10px;
-}
-
-.day {
-    background-color: var(--background-color);
-    border-radius: 8px;
-    min-height: 120px;
-    padding: 10px;
-    font-weight: 500;
-    transition: background-color 0.3s;
-}
-
-.day.empty {
-    background-color: transparent;
-}
-
-
-.day.event {
-    background-color: var(--primary-accent-color);
-    color: var(--background-color);
-    cursor: pointer;
+    height: calc(100vh - 150px); /* Ajusta a altura */
     display: flex;
     flex-direction: column;
 }
 
-.event-name {
-    font-size: 13px;
-    margin-top: 5px;
-    font-weight: 600;
-    line-height: 1.3;
-}
-
-.calendar-header.management {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.nav-arrow {
-    background: none;
-    border: none;
-    color: var(--primary-accent-color);
-    font-size: 24px;
-    cursor: pointer;
-}
-.calendar-grid.management .day {
-    min-height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.day.selectable:not(.empty):hover {
-    background-color: var(--primary-accent-color);
-    color: var(--background-color);
-    cursor: pointer;
-}
-
-.modal-content.small-modal { max-width: 400px; }
-.modal-content.large-modal { max-width: 800px; }
-
-.confirm-text {
-    margin-bottom: 30px;
-    font-size: 16px;
-    text-align: center;
-    color: var(--text-secondary-color);
-}
-.confirm-buttons {
-    display: flex;
-    gap: 15px;
-    justify-content: flex-end;
-}
-.cancel-btn {
-    background-color: var(--surface-color);
-    border: 1px solid var(--border-color);
-    color: var(--text-secondary-color);
-}
-.cancel-btn, .confirm {
-    padding: 12px 25px;
-    border-radius: 8px;
+#calendar {
+    flex-grow: 1;
     font-family: 'Poppins', sans-serif;
-    font-size: 15px;
-    font-weight: 500;
+    /* min-height garante que o container não colapse em layouts flex, permitindo ao FullCalendar renderizar */
+    min-height: 420px; /* garante área visível para o FullCalendar */
+}
+
+/* --- Estilização do Header do FullCalendar --- */
+.fc .fc-toolbar-title {
+    color: var(--text-primary-color);
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.fc .fc-button-primary {
+    background-color: var(--surface-color);
+    border-color: var(--border-color);
+    color: var(--text-secondary-color);
+}
+.fc .fc-button-primary:hover, .fc .fc-button-primary:active {
+    background-color: var(--primary-accent-color) !important;
+    color: var(--background-color) !important;
+    border-color: var(--primary-accent-color) !important;
+}
+
+.fc .fc-today-button {
+    background-color: var(--primary-accent-color);
+    border-color: var(--primary-accent-color);
+    color: var(--background-color);
+}
+.fc .fc-today-button:disabled {
+    background-color: var(--surface-color);
+    border-color: var(--border-color);
+}
+
+/* --- Estilização da Tabela do Calendário --- */
+.fc .fc-col-header-cell-cushion {
+    color: var(--text-secondary-color);
+    text-decoration: none;
+}
+
+.fc-theme-standard th, .fc-theme-standard td {
+    border-color: var(--border-color);
+}
+
+.fc .fc-daygrid-day-number {
+    color: var(--text-secondary-color);
+    text-decoration: none;
+}
+.fc .fc-day-today .fc-daygrid-day-number {
+    color: var(--primary-accent-color);
+    font-weight: 700;
+}
+
+/* --- Estilização dos Eventos --- */
+.fc-direction-ltr .fc-daygrid-event .fc-event-time {
+    margin-right: 5px;
+}
+.fc-event {
+    background-color: var(--primary-accent-color) !important; /* dourado */
+    border-color: var(--primary-accent-color) !important;
+    color: var(--background-color) !important;
+    font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-}
-.cancel-btn:hover {
-    background-color: var(--background-color);
+    padding: 4px 6px;
 }
 
-.modal-form input[type="time"] {
-     width: 100%; padding: 12px; background-color: var(--background-color);
-    border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-primary-color);
-    font-size: 14px; font-family: 'Poppins', sans-serif;
+/* Mostra o título do evento abaixo do número do dia (dayGrid) */
+.fc .fc-daygrid-day-frame {
+    position: relative;
 }
-.modal-form input[type="time"]::-webkit-calendar-picker-indicator {
-    filter: invert(0.8);
-}
-
-.calendar-toolbar {
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: flex-end;
+.fc .fc-daygrid-day-number + .fc-daygrid-event-list {
+    margin-top: 6px;
 }
 
-.action-btn {
+/* Botão gerenciar eventos no header */
+.manage-btn {
     background-color: transparent;
     border: 1px solid var(--border-color);
     color: var(--text-secondary-color);
-    padding: 8px 16px;
+    padding: 8px 12px;
     border-radius: 8px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 13px;
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
+.manage-btn:hover { border-color: var(--primary-accent-color); color: var(--text-primary-color); }
 
-.action-btn:hover {
-    background-color: var(--primary-accent-color);
-    color: var(--background-color);
-    border-color: var(--primary-accent-color);
-}
+/* Modal de gerenciamento (calendário menor) */
+.modal-content.manage-modal { max-width: 720px; }
+.modal-content.manage-modal #manage-calendar { margin-top: 10px; }
+
+/* --- Modais --- */
+.modal-content.small-modal { max-width: 400px; }
+.confirm-text { margin-bottom: 30px; font-size: 16px; text-align: center; }
+.confirm-buttons { display: flex; gap: 15px; justify-content: flex-end; }
+.cancel-btn { background-color: var(--surface-color); border: 1px solid var(--border-color); color: var(--text-secondary-color); }
+.cancel-btn, .confirm { padding: 12px 25px; border-radius: 8px; font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 500; cursor: pointer; }
+.modal-form input[type="time"] { width: 100%; padding: 12px; background-color: var(--background-color); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-primary-color); font-size: 14px; font-family: 'Poppins', sans-serif; }

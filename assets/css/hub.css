@@ -1,4 +1,9 @@
 
+/* hub.css - contém estilos do dashboard e do layout global
+    Notas importantes:
+    - .sidebar usa transição de largura para 'collapsed' state; o JS apenas alterna a classe.
+    - Muitas regras dependem das variáveis definidas em :root para manter consistência de tema.
+*/
 :root {
    
     --background-color: #121212;
@@ -42,6 +47,10 @@ body {
     flex-direction: column;
     transition: width 0.3s ease;
 }
+/* Observação sobre .sidebar.collapsed:
+   - Quando .collapsed está presente, textos e labels são escondidos (opacity/visibility)
+   - Isso facilita um modo compacto sem alterar a ordem do DOM (útil para animações).
+*/
 
 .sidebar-header {
     display: flex;

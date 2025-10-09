@@ -1,4 +1,9 @@
-/* Reset e Configurações Globais */
+/* Reset e Configurações Globais
+   Observações:
+   - Variáveis em :root definem o tema (cores, larguras da sidebar).
+   - `--primary-accent-color` é o dourado usado em toda a UI (botões ativos, destaques).
+   - Alterar essas variáveis altera o tema global do aplicativo.
+*/
 :root {
     --background-color: #121212;
     --surface-color: #1E1E1E;
@@ -197,6 +202,12 @@ body {
     transform: translateY(-5px);
     border-color: var(--primary-accent-color);
 }
+
+/* Notas finais:
+     - Media queries estão presentes também em hub.css para ajustar a sidebar em telas pequenas.
+     - Modais reutilizam classes globais (`modal-overlay`, `modal-content`) definidas inline nos componentes HTML
+         e estilizadas em events.css (e aqui para regras gerais). Se adicionar novos modais, siga a mesma estrutura.
+*/
 
 .card-icon {
     font-size: 36px;

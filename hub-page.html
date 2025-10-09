@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel Administrativo | Capítulo Liberdade Harmoniosa</title>
     <link rel="stylesheet" href="assets/css/hub.css">
+    <!-- hub.css contém variáveis de tema (cores, espaçamentos) e a lógica visual da sidebar recolhível -->
     <link rel="icon" type="image/png" href="https://i.imgur.com/PzB6flS.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +18,8 @@
 
 <body>
     <div class="container">
-        <nav class="sidebar">
+    <!-- Sidebar principal: contém navegação e botão toggle que alterna a classe `collapsed` -->
+    <nav class="sidebar">
             <header class="sidebar-header">
                 <img src="assets/icons/favicon-96x96.png" alt="Logo" class="logo">
                 <div class="header-text">
@@ -26,6 +28,7 @@
                 </div>
             </header>
 
+            <!-- toggle-btn: controlado por `assets/js/hub.js` que adiciona/remove a classe .collapsed na sidebar -->
             <button id="toggle-btn" class="toggle-btn">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M15.5 19L8.5 12L15.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -33,6 +36,7 @@
                 </svg>
             </button>
 
+            <!-- menu-items: links da aplicação; a classe `active` indica a página atual -->
             <ul class="menu-items">
                 <li><a href="hub-page.html" class="active"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                             height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -77,6 +81,7 @@
         </nav>
 
         <main class="main-content">
+            <!-- Cabeçalho da página: título e perfil do usuário -->
             <header class="page-header">
                 <h1>Dashboard</h1>
                 <div class="user-profile">
