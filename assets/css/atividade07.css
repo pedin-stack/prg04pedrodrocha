@@ -1,0 +1,45 @@
+*{
+
+font-family: Arial, Helvetica, sans-serif;
+
+}
+
+
+.formatacao{
+text-align: center;
+justify-content: center;
+display: inline-block;
+margin-left: 25%;
+margin-top:100px;
+
+}
+
+
+.formatacao img {
+
+    width: 150px;
+    height: 150px;
+    border: 2px solid black;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    box-shadow: 5px 5px 5px grey;
+
+}
+
+a.voltar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+a.voltar:hover {
+    background-color: #0056b3;
+}
