@@ -181,19 +181,13 @@ body {
     font-weight: 600;
 }
 
-.user-profile {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+.user-link{
+text-decoration: none;
+color: var(--text-primary-color);
+background-color: var(--border-color);
+padding: 20px;
+border-radius: 100%;
 }
-
-.user-profile img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
 
 .dashboard-grid {
     display: grid;

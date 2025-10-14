@@ -80,6 +80,14 @@
     padding: 4px 6px;
 }
 
+.user-link{
+text-decoration: none;
+color: var(--text-primary-color);
+background-color: var(--border-color);
+padding: 20px;
+border-radius: 100%;
+}
+
 /* Mostra o título do evento abaixo do número do dia (dayGrid) */
 .fc .fc-daygrid-day-frame {
     position: relative;

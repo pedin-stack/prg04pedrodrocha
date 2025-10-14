@@ -181,6 +181,14 @@ body {
     object-fit: cover;
 }
 
+.user-link{
+text-decoration: none;
+color: var(--text-primary-color);
+background-color: var(--border-color);
+padding: 20px;
+border-radius: 100%;
+}
+
 .treasury-options {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
