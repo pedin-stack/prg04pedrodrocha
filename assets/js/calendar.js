@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
   var calendarEl = document.getElementById('calendar');
-  if (!calendarEl) return console.warn('Elemento #calendar não encontrado')
 
   var calendar = new FullCalendar.Calendar(calendarEl, {
     initialView: 'dayGridMonth',
@@ -11,20 +10,17 @@ document.addEventListener('DOMContentLoaded', function() {
       addEventButton: {
         text: 'Criar evento',
         click: function() {
+          // mostrar painel de formulário
           var panel = document.getElementById('event-form-panel')
           if (!panel) return
           panel.style.display = 'block'
           panel.setAttribute('aria-hidden', 'false')
         }
       }
-    },
-    locale: 'pt-br',
-    firstDay: 1,
-    events: []
+    }
   });
 
   calendar.render();
-
   // helpers para o painel de criação
   function parseBrazilianDate(s) {
     if (!s) return null
@@ -67,9 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
     alert('Evento "' + title + '" criado para ' + date.toLocaleDateString('pt-BR'))
     if (panel){ panel.style.display = 'none'; panel.setAttribute('aria-hidden','true') }
     // limpar campos
-    var t = document.getElementById('evt-title')
-    var d = document.getElementById('evt-date')
-    if (t) t.value = ''
-    if (d) d.value = ''
+    document.getElementById('evt-title').value = ''
+    document.getElementById('evt-date').value = ''
   })
 });
