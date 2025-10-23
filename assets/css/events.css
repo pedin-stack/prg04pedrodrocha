@@ -1,0 +1,124 @@
+/* events.css - estilos específicos para a página de eventos e para o FullCalendar */
+:root {
+		/* fallback colors in case treasury.css isn't loaded first */
+		--fc-bg: var(--background-color, #121212);
+		--fc-surface: var(--surface-color, #1E1E1E);
+		--fc-accent: var(--primary-accent-color, #D4AF37);
+		--fc-border: var(--border-color, #2c2c2c);
+		--fc-text: var(--text-primary-color, #FFFFFF);
+		--fc-muted: var(--text-secondary-color, #A9A9A9);
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Poppins', sans-serif;
+	font-size: 14px;
+	background: transparent; /* page background controlled by treasury.css */
+	color: var(--fc-text);
+}
+
+/* Wrapper card para manter o mesmo visual das outras páginas */
+.calendar-wrapper {
+	max-width: 1400px; /* aumentado para telas maiores */
+	margin: 24px auto;
+	padding: 22px;
+	background-color: var(--fc-surface);
+	border: 1px solid var(--fc-border);
+	border-radius: 12px;
+	box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+#calendar { box-sizing: border-box; min-height: 820px; }
+
+/* Toolbar */
+.fc .fc-toolbar {
+	margin-bottom: 12px;
+	align-items: center;
+}
+.fc .fc-toolbar-title {
+	font-size: 18px;
+	color: var(--fc-text);
+	font-weight: 600;
+}
+.fc .fc-button {
+	background: transparent;
+	color: var(--fc-text);
+	border: 1px solid var(--fc-border);
+	padding: 6px 10px;
+	border-radius: 8px;
+	box-shadow: none;
+	transition: all 0.12s ease;
+}
+.fc .fc-button:hover {
+	transform: translateY(-1px);
+	border-color: rgba(212,175,55,0.9);
+}
+.fc .fc-button:active {
+	transform: translateY(0px) scale(0.99);
+}
+
+/* Botão Today e os botões primários */
+.fc .fc-button-primary {
+	background: linear-gradient(180deg, rgba(212,175,55,0.15), rgba(212,175,55,0.06));
+	border-color: rgba(212,175,55,0.25);
+	color: var(--fc-text);
+}
+.fc .fc-button-primary:hover {
+	background: linear-gradient(180deg, rgba(212,175,55,0.25), rgba(212,175,55,0.08));
+}
+
+/* Se quiser um estilo específico para o botão "Criar evento", podemos adicionar
+	 uma classe via JS (ex: .create-event-btn) ao inicializar o calendário e estilizar aqui. */
+
+/* Event styling (DayGrid) */
+.fc .fc-daygrid-event {
+	background: var(--fc-accent);
+	color: var(--background-color);
+	border: 0;
+	border-radius: 8px;
+	padding: 4px 6px;
+	box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+.fc .fc-daygrid-day-number { color: var(--fc-muted); }
+
+/* TimeGrid events */
+.fc .fc-timegrid-event {
+	background: linear-gradient(180deg, var(--fc-accent), #b08b2a);
+	color: var(--background-color);
+	border: none;
+}
+
+/* Today highlight */
+.fc .fc-day-today {
+	background: rgba(212,175,55,0.03);
+	border-radius: 6px;
+}
+
+/* Popover/event details */
+.fc-popover {
+	background: var(--fc-surface);
+	color: var(--fc-text);
+	border: 1px solid var(--fc-border);
+	border-radius: 8px;
+}
+
+/* Ensure FullCalendar internals are visible in dark theme */
+.calendar-wrapper .fc, .calendar-wrapper .fc * {
+	color: inherit !important;
+}
+
+/* Small screens adjustments */
+@media (max-width: 768px) {
+	.calendar-wrapper { padding: 12px; margin: 12px; }
+	#calendar { min-height: 520px; }
+	.fc .fc-toolbar-title { font-size: 16px; }
+	.fc .fc-button { padding: 6px 8px; }
+}
+
+/* Accessibility: focus states */
+.fc .fc-button:focus {
+	outline: 3px solid rgba(212,175,55,0.18);
+	outline-offset: 2px;
+}
+
