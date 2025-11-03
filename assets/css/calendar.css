@@ -1,94 +1,195 @@
 html,
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Poppins', sans-serif;
-  font-size: 14px;
+ margin: 0;
+padding: 0;
+ font-family: 'Poppins', sans-serif;
+ font-size: 14px;
+ 
+ /* Estilos globais do tema para garantir consistência --- */
+ background-color: var(--background-color, #121212);
+ color: var(--text-primary-color, #FFFFFF);
+ height: 100vh;
+ overflow: hidden;
+}
+
+/* Isso garante que a sidebar e o main-content fiquem lado a lado */
+.container {
+display: flex;
+height: 100vh;
+}
+
+.sidebar {
+ width: 260px; /* O JS controla a classe .collapsed */
+height: 100vh;
+ background-color: var(--surface-color, #1E1E1E);
+ padding: 20px;
+position: relative;
+ transition: width 0.3s ease;
+display: flex;
+ flex-direction: column;
+ flex-shrink: 0; /* Impede que a sidebar encolha */
+}
+
+.sidebar.collapsed {
+width: 88px;
+}
+
+.main-content {
+ flex-grow: 1;
+ padding: 20px 40px;
+ display: flex;
+ flex-direction: column;
+ overflow-y: auto;
 }
 
 #calendar {
-  width: 1000px;
-  min-height: 700px;
-  position: relative;
-  margin: auto;
+ 
+ min-height: 700px;
+ position: relative;
 
+ /* --- Faz o calendário preencher o .main-content --- */
+ flex-grow: 1;
 }
-    #event-form-panel {
-      position: fixed; /* fica sobre o conteúdo */
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      background: var(--surface-color, #2c2c2c);
-      width: 420px;
-      max-width: calc(100% - 40px);
-      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.8);
-      padding: 18px;
-      border-radius: 10px;
-      display: none; /* o JS controla a exibição */
-      z-index: 20000; /* acima do calendário */
-      border: 1px solid var(--border-color, #222);
-    }
+
+/* Remove sublinhado dos links do FullCalendar --- */
+.fc .fc-col-header-cell-cushion,
+.fc .fc-daygrid-day-number,
+.fc .fc-list-event-title a {
+ text-decoration: none;
+ color: inherit; /* Herda a cor do texto, removendo o azul padrão */
+}
+
+
+
+#event-form-panel {
+ position: fixed; 
+left: 50%;
+ top: 50%;
+ transform: translate(-50%, -50%);
+background: var(--surface-color, #2c2c2c);
+ width: 420px;
+max-width: calc(100% - 40px); 
+padding: 18px;
+border-radius: 10px;
+ display: none; /* o JS controla a exibição */
+ z-index: 20000; /* acima do calendário */
+ border: 1px solid var(--border-color, #222);
+}
 
 #event-form-panel input[type="text"],
 #event-form-panel input[type="date"] {
-  width: 100%;
-  padding: 6px 8px;
-  margin-bottom: 8px;
-  border-radius: 17px;
-  box-sizing: border-box;
+ width: 100%;
+ padding: 6px 8px;
+ margin-bottom: 8px;
+ border-radius: 17px;
+ box-sizing: border-box;
 }
 
 #event-form-panel .actions {
-  display: flex;
-  gap: 8px;
-  justify-content: flex-end
+ display: flex;
+ gap: 8px;
+ justify-content: flex-end
 }
 
 .actions button {
-  padding: 8px 12px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
+ padding: 8px 12px;
+border: none;
+border-radius: 6px;
+ cursor: pointer;
+font-weight: 600;
 }
 
 #event-form-panel .actions button#evt-create {
-  background-color: #d4af37;
-  color: #fff;
+background-color: #d4af37;
+color: #fff;
 }
 
 #event-form-panel .actions button#evt-create:hover {
-  background-color: #b8952c;
+ background-color: #b8952c;
 }
 
 #event-form-panel .actions button#evt-cancel {
-  background-color: #f0f0f0;
-  color: #333;
+background-color: #f0f0f0;
+ color: #333;
 }
 
 #event-form-panel .actions button#evt-cancel:hover {
-  background-color: #e0e0e0;
+ background-color: #e0e0e0;
 }
 
 /*botoes nativos do fullcalendar*/
 
 .fc-toolbar-chunk .fc-button {
-    background-color: #D4AF37; 
-    color: #ffffff;             
-    border: 1px solid #555555; 
-    transition: background-color 0.2s ease-in-out; 
-    text-transform: capitalize; 
+ background-color: #D4AF37;  color: #ffffff; 
+border: 1px solid #555555; 
+ text-transform: capitalize; 
 }
 
 .fc-toolbar-chunk .fc-button:hover {
-    background-color: #b8952c; 
+ background-color: #b8952c; 
 }
 
 .fc-toolbar-chunk .fc-button:active,
 .fc-toolbar-chunk .fc-button.fc-button-active {
-    background-color: #d4af37;
-    border-color: #b8952c;     
-    color: #ffffff;
+ background-color: #d4af37;
+ border-color: #b8952c; 
+ color: #ffffff;
+}
+
+/* Media Queries para Responsividade --- */
+
+@media (max-width: 768px) {
+
+
+ html, body {
+ height: auto;
+ overflow: auto; /* Permite o scroll da página inteira */
+ }
+
+ .container {
+ flex-direction: column;
+ height: auto; /* Remove a altura fixa de 100vh */
+ }
+
+ /* Transforma a sidebar em uma "top-bar" */
+ .sidebar,
+ .sidebar.collapsed {
+ width: 100%;
+ height: auto; 
+ padding: 15px;
+ /* ajustar o layout interno da sidebar aqui */
+
+ }
+
+ .main-content {
+ padding: 15px; /* Reduz o padding lateral */
+ overflow-y: visible; /* Desativa o scroll interno */
+ }
+
+ #calendar {
+ /* Reduz a altura mínima para caber melhor em telas menores */
+ min-height: 500px; 
 }
 
 
+ #event-form-panel {
+width: 90vw; /* Usa 90% da largura da tela */
+padding: 15px;
+ }
+
+ /* Melhora a usabilidade dos inputs em celulares */
+ #event-form-panel input[type="text"],
+  #event-form-panel input[type="date"],
+ .actions button {
+ /* Impede o zoom automático no iOS ao focar */
+ font-size: 16px; 
+ padding: 10px; 
+ }
+
+ .fc-toolbar.fc-header-toolbar {
+ /* Empilha os botões (prev, title, next)*/
+ flex-direction: column;
+gap: 10px; /* Adiciona espaço entre as seções */
+ padding: 10px 0;
+ }
+}
