@@ -4,140 +4,214 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tesouraria - SIGECAP</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
     <link rel="stylesheet" href="assets/css/treasury.css">
+    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon.ico">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-96x96.png">
 </head>
 <body>
-    <div class="container">
-        <nav class="sidebar">
-            <header class="sidebar-header">
-                <img src="assets/icons/favicon-96x96.png" alt="Logo" class="logo">
-                <div class="header-text">
-                    <span class="chapter-name">Liberdade Harmoniosa</span>
-                    <span class="chapter-number">Capítulo n° 387</span>
-                </div>
-            </header>
-            <button id="toggle-btn" class="toggle-btn">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 19L8.5 12L15.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-            <ul class="menu-items">
-                <li><a href="hub-page.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg><span>Dashboard</span></a></li>
-
-                <li><a href="events.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg><span>Eventos</span></a></li>
-
-                <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg><span>Membros</span></a></li>
-
-                <li><a href="treasury.html" class="active"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg><span>Tesouraria</span></a></li>
-
-                <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg><span>Configurações</span></a></li>
-            </ul>
-        </nav>
-
-        <main class="main-content">
-            <header class="main-header">
-                <h1>Tesouraria</h1>
-                <div class="user-profile">
-                    <!-- Link para a página do usuário -->
-                    <a href="user.html" class="user-link">User</a>
-                </div>
-            </header>
-
-            <!-- Seção de opções da Tesouraria: cada `option-card` pode abrir um modal -> ids usados em JS -->
-            <section class="treasury-options">
-                <!-- `register-movement-btn` é usado por `assets/js/movimentaçãofincanceira.js` para abrir o modal de movimentação -->
-                <div class="option-card" id="register-movement-btn">
-                    <div class="card-icon"><i class="fas fa-exchange-alt"></i></div>
-                    <div class="card-content">
-                        <h2>Registrar Movimentação</h2>
-                        <p>Adicione novas entradas ou saídas no caixa do capítulo.</p>
+    <div class="container-fluid g-0">
+        <div class="d-flex">
+            <nav class="sidebar">
+                <header class="sidebar-header">
+                    <img src="assets/icons/favicon-96x96.png" alt="Logo" class="logo">
+                    <div class="header-text">
+                        <span class="chapter-name">Liberdade Harmoniosa</span>
+                        <span class="chapter-number">Capítulo n° 387</span>
                     </div>
-                </div>
-                <div class="option-card" id="manage-dues">
-                    <div class="card-icon"><i class="fas fa-file-invoice-dollar"></i></div>
-                    <div class="card-content">
-                        <h2>Gestão de Mensalidades</h2>
-                        <p>Controle o status de pagamento das mensalidades dos membros.</p>
-                    </div>
-                </div>
-                <div class="option-card" id="generate-reports-btn">
-                    <div class="card-icon"><i class="fas fa-file-alt"></i></div>
-                    <div class="card-content">
-                        <h2>Geração de Relatórios</h2>
-                        <p>Emita relatórios detalhados sobre as movimentações financeiras.</p>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-    <!-- Modal de registro de movimentação: aceita upload de PDF (verificar validação no JS) -->
-    <div class="modal-overlay" id="movement-modal">
-            <div class="modal-content">
-                <header class="modal-header">
-                    <h2>Registrar Nova Movimentação</h2>
-                    <button class="close-modal-btn" id="close-modal">&times;</button>
                 </header>
-                <form class="modal-form">
-                    <div class="form-group">
-                        <label for="movement-name">Nome/Objeto da Movimentação</label>
-                        <input type="text" id="movement-name" placeholder="Ex: Compra de materiais para filantropia" required>
+                <button id="toggle-btn" class="toggle-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 19L8.5 12L15.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <ul class="menu-items">
+                    <li><a href="hub-page.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg><span>Dashboard</span></a></li>
+                    <li><a href="events.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg><span>Eventos</span></a></li>
+                    <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg><span>Membros</span></a></li>
+                    <li><a href="treasury.html" class="active"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg><span>Tesouraria</span></a></li>
+                    <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg><span>Configurações</span></a></li>
+                </ul>
+            </nav>
+
+            <main class="main-content">
+                <header class="main-header">
+                    <h1>Tesouraria</h1>
+                    <div class="user-profile">
+                        <a href="user.html" class="user-link">User</a>
                     </div>
-                    <div class="form-group">
-                        <label for="movement-description">Descrição</label>
-                        <textarea id="movement-description" rows="3" placeholder="Detalhes da movimentação financeira..."></textarea>
-                    </div>
-                    <div class="form-group-inline">
-                        <div class="form-group">
-                            <label>Tipo</label>
-                            <div class="radio-group">
-                                <input type="radio" id="entrada" name="movement-type" value="entrada" checked>
-                                <label for="entrada">Entrada</label>
-                                <input type="radio" id="saida" name="movement-type" value="saida">
-                                <label for="saida">Saída</label>
+                </header>
+
+                <section class="treasury-options">
+                    <div class="row g-4">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="option-card" id="register-movement-btn">
+                                <div class="card-icon"><i class="fas fa-exchange-alt"></i></div>
+                                <div class="card-content">
+                                    <h2>Registrar Movimentação</h2>
+                                    <p>Adicione novas entradas ou saídas no caixa do capítulo.</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="movement-value">Valor (R$)</label>
-                            <input type="number" id="movement-value" placeholder="0,00" step="0.01" required>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="option-card" id="manage-dues">
+                                <div class="card-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                                <div class="card-content">
+                                    <h2>Gestão de Mensalidades</h2>
+                                    <p>Controle o status de pagamento das mensalidades dos membros.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="option-card" id="simple-balance-btn">
+                                <div class="card-icon"><i class="fas fa-chart-pie"></i></div>
+                                <div class="card-content">
+                                    <h2>Balanço Simples</h2>
+                                    <p>Mostra de maneira resumida os gastos recentes</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="option-card" id="generate-reports-btn">
+                                <div class="card-icon"><i class="fas fa-file-alt"></i></div>
+                                <div class="card-content">
+                                    <h2>Geração de Relatórios</h2>
+                                    <p>Emita relatórios detalhados sobre as movimentações financeiras.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                        <div class="form-group">
-                            <label for="movement-proof">Documento Comprobatório</label>
-                            <!-- `accept=".pdf"` limita o seletor de arquivos no cliente, mas o backend deve validar o tipo/size -->
-                            <input type="file" id="movement-proof" accept=".pdf" required>
+                </section>
+            </main>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="movement-modal" tabindex="-1" aria-labelledby="movementModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="movementModalLabel">Registrar Nova Movimentação</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="movement-form">
+                        <div class="mb-3">
+                            <label for="movement-name" class="form-label">Nome/Objeto da Movimentação</label>
+                            <input type="text" class="form-control" id="movement-name" placeholder="Ex: Compra de materiais para filantropia" required>
                         </div>
-                    <button type="submit" class="submit-btn">Enviar Movimentação</button>
-                </form>
+                        <div class="mb-3">
+                            <label for="movement-description" class="form-label">Descrição</label>
+                            <textarea class="form-control" id="movement-description" rows="3" placeholder="Detalhes da movimentação financeira..."></textarea>
+                        </div>
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Tipo</label>
+                                <div class="radio-group">
+                                    <input type="radio" class="btn-check" name="movement-type" id="entrada" value="entrada" checked>
+                                    <label class="btn btn-outline-secondary" for="entrada">Entrada</label>
+                                    <input type="radio" class="btn-check" name="movement-type" id="saida" value="saida">
+                                    <label class="btn btn-outline-secondary" for="saida">Saída</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="movement-value" class="form-label">Valor (R$)</label>
+                                <input type="number" class="form-control" id="movement-value" placeholder="0,00" step="0.01" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="movement-proof" class="form-label">Documento Comprobatório</label>
+                            <input type="file" class="form-control" id="movement-proof" accept=".pdf" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" form="movement-form" class="btn btn-primary">Enviar Movimentação</button>
+                </div>
             </div>
         </div>
+    </div>
 
-        <div class="modal-overlay" id="reports-modal">
+    <div class="modal fade" id="reports-modal" tabindex="-1" aria-labelledby="reportsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <header class="modal-header">
-                    <h2>Gerar Relatório Financeiro</h2>
-                    <button class="close-modal-btn" id="close-reports-modal">&times;</button>
-                </header>
-                <form class="modal-form">
-                    <div class="form-group-inline">
-                        <div class="form-group">
-                            <label for="start-date">Data de Início</label>
-                            <input type="date" id="start-date" required>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="reportsModalLabel">Gerar Relatório Financeiro</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="reports-form">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="start-date" class="form-label">Data de Início</label>
+                                <input type="date" class="form-control" id="start-date" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="end-date" class="form-label">Data de Término</label>
+                                <input type="date" class="form-control" id="end-date" required>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="end-date">Data de Término</label>
-                            <input type="date" id="end-date" required>
-                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" form="reports-form" class="btn btn-primary">Gerar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="balance-modal" tabindex="-1" aria-labelledby="balanceModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="balanceModalLabel">Balanço Simples de Movimentações</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Data</th>
+                                    <th scope="col">Nome/Objeto</th>
+                                    <th scope="col">Tipo</th>
+                                    <th scope="col">Valor</th>
+                                    <th scope="col">Documento</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>01/10/2025</td>
+                                    <td>Compra de materiais para filantropia</td>
+                                    <td><span class="badge text-bg-danger">Saída</span></td>
+                                    <td>R$ 150,00</td>
+                                    <td><a href="#" class="btn btn-sm btn-outline-secondary">Ver PDF</a></td>
+                                </tr>
+                                
+                        </table>
                     </div>
-                    <button type="submit" class="submit-btn">Gerar</button>
-                </form>
+                    
+                    <nav aria-label="Navegação do balanço">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled"><a class="page-link" href="#">Anterior</a></li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">Próxima</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
             </div>
         </div>
     </div>
     
     <script src="https://kit.fontawesome.com/8c5f917d47.js" crossorigin="anonymous"></script>
-    <script src="assets/js/movimentaçãofincanceira.js"></script>
-    <script src="assets/js/relatorio.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="assets/js/treasury.js"></script>
 </body>
 </html>
