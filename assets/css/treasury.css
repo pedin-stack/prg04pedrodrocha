@@ -327,3 +327,40 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     --bs-pagination-disabled-bg: var(--border-color);
     --bs-pagination-disabled-border-color: var(--border-color);
 }
+
+/* --- 8. ESTILOS PARA TABELA DE MENSALIDADES --- */
+
+#dues-modal .table {
+    font-size: 14px; 
+    vertical-align: middle;
+}
+
+#dues-modal .table th, 
+#dues-modal .table td {
+    padding: 0.6rem 0.4rem;
+    text-align: center;
+    min-width: 60px;
+}
+
+#dues-modal .table th:first-child, 
+#dues-modal .table td:first-child {
+    text-align: left;
+    min-width: 150px;
+    font-weight: 500;
+}
+
+/* Status de Pagamento */
+.status-paid {
+    color: #198754; 
+    font-weight: 500;
+}
+
+.status-pending {
+    color: #dc3545; 
+    font-weight: 500;
+}
+
+.modal-footer.justify-content-between {
+    display: flex;
+    justify-content: space-between;
+}
