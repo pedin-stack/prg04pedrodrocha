@@ -103,6 +103,8 @@ html, body {
 	border-radius: 8px;
 }
 
+
+
 /* Ensure FullCalendar internals are visible in dark theme */
 .calendar-wrapper .fc, .calendar-wrapper .fc * {
 	color: inherit !important;
