@@ -35,6 +35,7 @@ ol {
 
 li {
     margin-bottom: 1rem;
+    list-style: none;
 }
 
 a {
