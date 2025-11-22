@@ -1,0 +1,138 @@
+
+:root {
+    --background-color: #121212;
+    --surface-color: #1E1E1E;
+    --primary-accent-color: #D4AF37;
+    --text-primary-color: #FFFFFF;
+    --text-secondary-color: #A9A9A9;
+    --border-color: #2c2c2c;
+}
+
+body {
+    background-color: var(--background-color);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+        /* Utilities used by the Login page wrapper in Login.jsx */
+        .min-vh-100 { min-height: 100vh; }
+        .d-flex { display: flex; }
+        .align-items-center { align-items: center; }
+        .justify-content-center { justify-content: center; }
+
+/* Card de Login Principal */
+.login-card {
+    background-color: var(--surface-color);
+    padding: 2.75rem 2.5rem 2.5rem 2.5rem;
+    border-radius: 8px; /* 0.5rem */
+    max-width: 420px;
+    width: 100%;
+    margin: 0; /* centralizado pelo wrapper */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: visible;
+}
+
+/* small decorative top bar like the screenshot */
+.login-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: var(--primary-accent-color);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+/* Logo */
+.logo {
+    max-width: 160px; /* aumento do tamanho do logo para ficar mais próximo do screenshot */
+    height: auto;
+    display: block;
+    margin: -3.5rem auto 0 auto; /* puxa o logo para cima sobre a faixa superior */
+}
+
+.text-primary-color {
+    color: var(--text-primary-color);
+    font-weight: 600;
+}
+
+.text-secondary-color {
+    color: var(--text-secondary-color);
+    font-size: 0.95em;
+}
+
+/* Estilização do Formulário */
+.form-label {
+    color: var(--primary-accent-color);
+    font-weight: 500;
+    font-size: 0.9em;
+}
+
+.form-control {
+    background-color: var(--background-color); /* Fundo do input mais escuro */
+    border: 1px solid var(--border-color);
+    color: var(--text-primary-color);
+    padding: 0.75rem;
+}
+
+.form-control:focus {
+    background-color: var(--background-color);
+    color: var(--text-primary-color);
+    border-color: var(--primary-accent-color);
+    /* Sombra de foco com a cor de destaque */
+    box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.25);
+}
+
+.form-control:-webkit-autofill,
+.form-control:-webkit-autofill:hover,
+.form-control:-webkit-autofill:focus,
+.form-control:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px var(--background-color) inset !important;
+    -webkit-text-fill-color: var(--text-primary-color) !important;
+    border-color: var(--border-color) !important;
+}
+
+
+.btn-accent {
+    background-color: var(--primary-accent-color);
+    border-color: var(--primary-accent-color);
+    color: #121212; 
+    font-weight: 700;
+        padding: 0.75rem;
+        width: 80%;
+        display: block;
+        margin: 1rem auto 0 auto; /* centraliza o botão dentro do card */
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.btn-accent:hover {
+    background-color: #b89a30; 
+    border-color: #b89a30;
+    color: #121212;
+}
+
+.btn-accent:focus {
+    color: #121212;
+    background-color: #b89a30;
+    border-color: #b89a30;
+    box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.5);
+}
+
+
+/* Link de "Esqueceu a senha?" */
+.forgot-password-link {
+    color: var(--text-secondary-color);
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: color 0.2s ease-in-out;
+    display: block;
+    width: 80%;
+    text-align: center;
+    margin: 0.8rem auto 0 auto; /* centraliza abaixo do botão */
+}
+
+.forgot-password-link:hover {
+    color: var(--text-primary-color);
+    text-decoration: underline;
+}

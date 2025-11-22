@@ -1,0 +1,290 @@
+
+
+:root {
+   
+    --background-color: #121212;
+    --surface-color: #1E1E1E;
+    --primary-accent-color: #D4AF37; 
+    --text-primary-color: #FFFFFF;
+    --text-secondary-color: #A9A9A9;
+    --border-color: #2c2c2c;
+
+    --sidebar-width: 260px;
+    --sidebar-width-collapsed: 88px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-primary-color);
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* --- BARRA LATERAL (SIDEBAR) --- */
+.sidebar {
+    background-color: var(--surface-color);
+    width: var(--sidebar-width);
+    height: 100vh;
+    padding: 20px;
+    position: relative; 
+    display: flex;
+    flex-direction: column;
+    transition: width 0.3s ease;
+}
+/* Observação sobre .sidebar.collapsed:
+   - Quando .collapsed está presente, textos e labels são escondidos (opacity/visibility)
+   - Isso facilita um modo compacto sem alterar a ordem do DOM (útil para animações).
+*/
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    padding-right: 40px; 
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+}
+
+.sidebar-header .logo {
+    margin-top: 0 !important;
+    display: block;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+.header-text {
+    display: flex;
+    flex-direction: column;
+    white-space: normal; /* permite quebra de linha para mostrar o texto completo */
+    opacity: 1;
+    transition: opacity 0.2s ease;
+
+}
+
+.chapter-name {
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--text-primary-color);
+}
+
+.chapter-number {
+    font-size: 12px;
+    color: var(--text-secondary-color);
+}
+
+.toggle-btn {
+    position: absolute;
+    top: 60px; 
+    right: -12px; 
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: var(--primary-accent-color);
+    color: var(--background-color);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    z-index: 10;
+}
+
+.menu-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-grow: 1;
+}
+
+.menu-items li div {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 14px 20px;
+    color: var(--text-secondary-color);
+    text-decoration: none;
+    border-radius: 8px;
+    white-space: nowrap;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.menu-items li div:hover {
+    background-color: var(--background-color);
+    color: var(--text-primary-color);
+}
+
+.menu-items li div.active {
+    background-color: var(--primary-accent-color);
+    color: var(--background-color);
+}
+.menu-items li div.active svg {
+    stroke: var(--background-color);
+}
+
+.menu-items li div svg {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+
+.sidebar.collapsed {
+    width: var(--sidebar-width-collapsed);
+}
+
+.sidebar.collapsed .header-text,
+.sidebar.collapsed .menu-items span {
+    opacity: 0;
+    visibility: hidden;
+    width: 0;
+    pointer-events: none; 
+}
+
+.sidebar.collapsed .menu-items {
+    gap: 8px;
+}
+.sidebar.collapsed .menu-items li div {
+    justify-content: center;
+    padding: 8px;
+    gap: 0;
+    width: 48px; /* manter tamanho consistente do botão */
+    height: 48px;
+    align-self: center;
+    border-radius: 12px;
+}
+
+/* Quando ativo, o fundo é um círculo/box centralizado apenas sobre o ícone */
+.sidebar.collapsed .menu-items li div.active {
+    background-color: var(--primary-accent-color);
+    color: var(--background-color);
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar.collapsed .menu-items li div svg {
+    width: 22px;
+    height: 22px;
+}
+
+.sidebar.collapsed .toggle-btn {
+    transform: rotate(180deg);
+}
+
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px 40px;
+    overflow-y: auto;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+.page-header h1 {
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.user-link{
+text-decoration: none;
+color: var(--text-primary-color);
+background-color: var(--border-color);
+padding: 20px;
+border-radius: 100%;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background-color: var(--surface-color);
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color); 
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-accent-color);
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: var(--text-secondary-color);
+}
+
+.card p {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-primary-color);
+}
+
+.card p.money {
+    color: #4caf50; 
+}
+
+.card small {
+    color: var(--text-secondary-color);
+    font-size: 0.9rem;
+    display: block;
+    margin-top: 15px;
+}
+
+@media (max-width: 768px) {
+    body {
+        height: auto;
+        overflow: visible;
+    }
+    .container {
+        flex-direction: column;
+        height: auto;
+    }
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: static;
+        flex-direction: row;
+        align-items: center;
+        padding: 10px 20px;
+        justify-content: space-between;
+    }
+    .toggle-btn { display: none; }
+    .sidebar-header { margin-bottom: 0; }
+    .header-text { display: none; }
+    .menu-items { flex-direction: row; justify-content: space-around; width: 100%; gap: 5px; flex-grow: 1;}
+    .menu-items span { display: none; }
+    .menu-items a { justify-content: center; gap: 0; padding: 10px;}
+    .page-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .main-content { padding: 20px; }
+}
